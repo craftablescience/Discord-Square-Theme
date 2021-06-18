@@ -1,7 +1,7 @@
 # Square Profile Icons
-A theme for BetterDiscord that makes profile icons square.
+A theme for BetterDiscord.
 
-### Makes profile pictures square:
+### Makes profile icons square:
 
 ![image](https://user-images.githubusercontent.com/26600014/122501229-439e8780-cfc2-11eb-84f6-706a95c16317.png)
 
