@@ -139,10 +139,6 @@ img[class*="avatar"] {
     border-radius: 0px;
 }
 
-a[class*="imageWrapper"] {
-    border-radius: 0px !important;
-}
-
 div[class^="voiceUserSummary"] > div > svg > foreignObject {
     mask: none;
 }
