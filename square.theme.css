@@ -2,15 +2,15 @@
 * @name Square Theme
 * @author craftablescience#6001
 * @description Makes Discord square.
-* @version 1.0.3
+* @version 1.0.4
 * @source https://github.com/craftablescience/Discord-Square-Theme/
 * @website https://belewis.me
 * @invite ASgHFkX
 * @updateUrl https://belewis.me/Discord-Square-Theme/square.theme.css
 */
 
-/* Main Features | Comment them out to disable them */
-@import url(//belewis.me/Discord-Square-Theme/profile_icons.css);
+
+
 
 /* Settings */
 :root {
@@ -20,4 +20,136 @@
     --sq-dnd: red;
     --sq-offline: grey;
     --sq-invisible: grey;
+}
+
+
+
+
+/* Profile Icons */
+div[data-list-id="chat-messages"] > div > div > img {
+    border-radius: 0px !important;
+}
+
+div[class*="avatar"] {
+    border-radius: 0px;
+}
+
+div[class*="header"] > div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-mobile);
+}
+
+div[class*="header"] > div[class*="avatar"][aria-label$="Online"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-online);
+}
+
+div[class*="header"] > div[class*="avatar"][aria-label$="Idle"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-idle);
+}
+
+div[class*="header"] > div[class*="avatar"][aria-label$="Disturb"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-dnd);
+}
+
+div[class*="header"] > div[class*="avatar"][aria-label$="Offline"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-offline);
+}
+
+div[class*="header"] > div[class*="avatar"][aria-label$="Invisible"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-invisible);
+}
+
+div[class*="avatar"] > svg > rect {
+    width: 0;
+    height: 0;
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > foreignObject {
+    border: 0px solid rgba(0,0,0,0);
+    border-bottom: 2px solid var(--sq-mobile);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > svg[class*="dots"] {
+    color: var(--sq-mobile);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > foreignObject {
+    border: 0px solid rgba(0,0,0,0);
+    border-bottom: 2px solid var(--sq-online);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > svg[class*="dots"] {
+    color: var(--sq-online);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > foreignObject {
+    border: 0px solid rgba(0,0,0,0);
+    border-bottom: 2px solid var(--sq-idle);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > svg[class*="dots"] {
+    color: var(--sq-idle);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > foreignObject {
+    border: 0px solid rgba(0,0,0,0);
+    border-bottom: 2px solid var(--sq-dnd);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > svg[class*="dots"] {
+    color: var(--sq-dnd);
+}
+
+div[class*="avatar"] > div[class*="wrapper"] > svg > foreignObject { /* Offline by default */
+    border: 0px solid rgba(0,0,0,0);
+    border-bottom: 2px solid var(--sq-offline);
+}
+
+div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] { /* Offline by default */
+    color: var(--sq-offline);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Invisible"] > svg > foreignObject {
+    border: 0px solid rgba(0,0,0,0);
+    border-bottom: 2px solid var(--sq-invisible);
+}
+
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Invisible"] > svg > svg[class*="dots"] {
+    color: var(--sq-invisible);
+}
+
+div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] > g > circle {
+    cx: 8.5;
+    cy: 5;
+    r: 5;
+}
+
+div[class*="avatar"] > div[class*="wrapper"] > svg > rect {
+    width: 0;
+    height: 0;
+}
+
+svg[class*="avatarHint"] {
+    border-radius: 0px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+svg[class*="avatarHint"] > foreignObject {
+    mask: none;
+    border-bottom-width: 0px !important;
+}
+
+div[role="img"] > svg > foreignObject {
+    mask: none;
+}
+
+img[class*="avatar"] {
+    border-radius: 0px;
+}
+
+div[class^="voiceUserSummary"] > div > svg > foreignObject {
+    mask: none;
+}
+
+div[class^="tooltip"] > div > div > svg > foreignObject {
+    mask: none;
 }
