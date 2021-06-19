@@ -1,0 +1,23 @@
+/**
+* @name Square Profile Icons
+* @author craftablescience#6001
+* @description Makes profile icons square.
+* @version 1.0.2
+* @source https://github.com/craftablescience/Discord-Square-Theme/
+* @website https://belewis.me
+* @invite ASgHFkX
+* @updateUrl https://raw.githubusercontent.com/craftablescience/Discord-Square-Theme/main/square.theme.css
+*/
+
+/* Main Features | Comment them out to disable them */
+@import url("https://belewis.me/Discord-Square-Theme/profile_icons.css");
+
+/* Settings */
+:root {
+    --sq-mobile: green; /* change this if you want to see a difference between mobile and online */
+    --sq-online: green;
+    --sq-idle: rgb(150, 150, 0);
+    --sq-dnd: red;
+    --sq-offline: grey;
+    --sq-invisible: grey;
+}
