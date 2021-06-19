@@ -6,7 +6,7 @@
 * @source https://github.com/craftablescience/Discord-Square-Theme/
 * @website https://belewis.me
 * @invite ASgHFkX
-* @updateUrl https://belewis.me/Discord-Square-Theme/square.theme.css
+* @updateUrl belewis.me/Discord-Square-Theme/square.theme.css
 */
 
 
@@ -20,7 +20,6 @@
     --sq-idle: rgb(150, 150, 0);
     --sq-dnd: red;
     --sq-offline: grey;
-    --sq-invisible: grey;
     
     --sq-distance-between-server-icons: 6px;
 }
@@ -28,51 +27,87 @@
 
 
 
+/* Universal / Misc. Styles */
+
+* {
+    /* REMEMBER, NO CIRCLE */
+    border-radius: 0px !important;
+}
+
+svg rect {
+    /* Makes some round SVGs square (most notably, checkbuttons, which are called "sliders" for some stupid reason) */
+    rx: 0;
+}
+
+div[role="button"] > div > svg > foreignObject,
+div[class*="headerIcon"] > div > svg > foreignObject,
+div[class*="guild"] foreignObject {
+    /* Affects the guild icons in the emoji picker and some other places */
+    mask: none;
+}
+
+div[class^="tooltipPointer"] {
+    /* Hides the arrow next to all tooltips if present */
+    display: none;
+}
+
+div[class*="result"]::after {
+    /* Makes the hover border in the GIF picker square */
+    border-radius: 0px;
+}
 
 
 
 
 /* Profile Icons */
 
-div[data-list-id="chat-messages"] > div > div > img {
-    border-radius: 0px !important;
-}
-
-div[class*="avatar"] {
+div[class*="avatar"],
+img[class*="avatar"] {
+    /* For the sake of making this snippet work without the styling applied by the rest of this theme */
     border-radius: 0px;
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject {
+div[class*="header"] > div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="mobile"] > svg > foreignObject {
     border-bottom: 4px solid var(--sq-mobile);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Online"] > svg > foreignObject {
+div[class*="header"] > div[class*="avatar"][aria-label$="Online"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Online"] > svg > foreignObject {
     border-bottom: 4px solid var(--sq-online);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Idle"] > svg > foreignObject {
+div[class*="header"] > div[class*="avatar"][aria-label$="Idle"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Idle"] > svg > foreignObject {
     border-bottom: 4px solid var(--sq-idle);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Disturb"] > svg > foreignObject {
+div[class*="header"] > div[class*="avatar"][aria-label$="Disturb"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Disturb"] > svg > foreignObject {
     border-bottom: 4px solid var(--sq-dnd);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Offline"] > svg > foreignObject {
+div[class*="header"] > div[class*="avatar"][aria-label$="Offline"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Offline"] > svg > foreignObject {
     border-bottom: 4px solid var(--sq-offline);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Invisible"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-invisible);
+div[class*="header"] > div[class*="avatar"][aria-label$="Invisible"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Invisible"] > svg > foreignObject {
+    border-bottom: 4px solid var(--sq-offline);
 }
 
-div[class*="avatar"] > svg > rect {
-    width: 0;
-    height: 0;
+div[class*="headerAvatar"] > svg > foreignObject {
+    border-bottom-width: 2px !important;
+}
+
+div[class*="avatar"] > svg > rect,
+div[class*="avatar"] > div[class*="wrapper"] > svg > rect,
+div[class*="headerAvatar"] > svg > rect {
+    display: none;
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > foreignObject {
-    border: 0px solid rgba(0,0,0,0);
     border-bottom: 2px solid var(--sq-mobile);
 }
 
@@ -81,7 +116,6 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > svg[c
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > foreignObject {
-    border: 0px solid rgba(0,0,0,0);
     border-bottom: 2px solid var(--sq-online);
 }
 
@@ -90,7 +124,6 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > svg[c
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > foreignObject {
-    border: 0px solid rgba(0,0,0,0);
     border-bottom: 2px solid var(--sq-idle);
 }
 
@@ -99,7 +132,6 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > svg[cla
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > foreignObject {
-    border: 0px solid rgba(0,0,0,0);
     border-bottom: 2px solid var(--sq-dnd);
 }
 
@@ -107,88 +139,60 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > svg[
     color: var(--sq-dnd);
 }
 
-div[class*="avatar"] > div[class*="wrapper"] > svg > foreignObject { /* Offline by default */
+div[class*="avatar"] > div[class*="wrapper"] > svg > foreignObject {
+    /* Offline by default, it's not in the label */
     border: 0px solid rgba(0,0,0,0);
     border-bottom: 2px solid var(--sq-offline);
 }
 
-div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] { /* Offline by default */
+div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] {
+    /* Offline by default, it's not in the label */
     color: var(--sq-offline);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Invisible"] > svg > foreignObject {
-    border: 0px solid rgba(0,0,0,0);
-    border-bottom: 2px solid var(--sq-invisible);
+    border-bottom: 2px solid var(--sq-offline);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Invisible"] > svg > svg[class*="dots"] {
-    color: var(--sq-invisible);
+    color: var(--sq-offline);
 }
 
 div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] > g > circle {
+    /* Move and scale typing indicator */
     cx: 8.5;
     cy: 5;
     r: 5;
 }
 
-div[class*="avatar"] > div[class*="wrapper"] > svg > rect {
-    width: 0;
-    height: 0;
-}
-
 svg[class*="avatarHint"] {
+    /* That little overlay "View Profile" when you hover over a profile picture in a popout */
     border-radius: 0px;
     background-color: rgba(0,0,0,0.7);
 }
 
 svg[class*="avatarHint"] > foreignObject {
+    /* That little overlay "View Profile" when you hover over a profile picture in a popout */
     mask: none;
     border-bottom-width: 0px !important;
 }
 
-div[role="img"] > svg > foreignObject {
+div[role="img"] > svg > foreignObject, /* Removes rounding from icons in the Members list */
+div[class^="voiceUserSummary"] > div > svg > foreignObject, /* Removes bevels from user icons under a collapsed category with an active VC */
+div[class^="tooltip"] > div > div > svg > foreignObject { /* Removes bevels from user icons when there are people in a VC in a server tooltip */
     mask: none;
 }
-
-img[class*="avatar"] {
-    border-radius: 0px;
-}
-
-div[class^="voiceUserSummary"] > div > svg > foreignObject {
-    mask: none;
-}
-
-div[class^="tooltip"] > div > div > svg > foreignObject {
-    mask: none;
-}
-
-
-
-
 
 
 
 
 /* Server List */
 
-div[aria-label="Servers"] > div > div > div[class^="blobContainer"] > div > svg > foreignObject {
+div[aria-label="Servers"] > div > div > div[class^="blobContainer"] > div > svg > foreignObject,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div > div > svg > foreignObject,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="listItem"] > div > div > svg > foreignObject,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItem"] > div > div > svg > foreignObject {
     mask: none;
-}
-
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div {
-    margin-bottom: var(--sq-distance-between-server-icons);
-}
-
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div > div > svg > foreignObject {
-    mask: none;
-}
-
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div[class^="listItemWrapper"] > div {
-    border-radius: 0px;
-}
-
-nav[aria-label="Servers sidebar"] > ul > div {
-    border-radius: 0px !important;
 }
 
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div {
@@ -199,34 +203,84 @@ nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] {
     padding-top: 0px;
 }
 
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItemWrapper"] {
-    margin-bottom: var(--sq-distance-between-server-icons);
-}
-
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItemWrapper"] > div {
-    border-radius: 0px;
-}
-
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="guildSeparator"] {
+    margin-top: calc(var(--sq-distance-between-server-icons) - 8px);
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItemWrapper"],
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="guildSeparator"],
+div[aria-label="Servers"] > div,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div[class^="listItem"],
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItem"] {
     margin-bottom: var(--sq-distance-between-server-icons);
 }
 
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="listItem"] > div > div > svg > foreignObject {
-    mask: none;
+
+
+
+/* Settings */
+
+div[class^="gemIndicatorContainer"] {
+    /* Unfortunately this has to be round :( */
+    border-radius: 50% !important;
 }
 
-div[aria-label="Servers"] > div > div > div > div {
+div[class^="previewAvatars"] > div > svg > rect {
+    /* Get rid of old status indicators... */
+    display: none;
+}
+
+div[class^="previewAvatars"] > div[aria-label$="Online"] > svg > foreignObject {
+    /* ...and replace them with underline-style indicators! */
+    border-bottom: 2px solid var(--sq-online);
+}
+
+div[class^="previewAvatars"] > div[aria-label$="Idle"] > svg > foreignObject {
+    border-bottom: 2px solid var(--sq-idle);
+}
+
+div[class^="previewAvatars"] > div[aria-label$="Disturb"] > svg > foreignObject {
+    border-bottom: 2px solid var(--sq-dnd);
+}
+
+
+
+
+/* Chat */
+
+div[class^="mediaBarProgress"]::before, div[class^="mediaBarProgress"]::after {
+    /* Might be redundant, haven't tested, don't care */
     border-radius: 0px;
 }
 
-div[aria-label="Servers"] > div {
-    margin-bottom: var(--sq-distance-between-server-icons);
-}
-
-div[aria-label="Servers"] > div > div[class*="pill"] span {
+div[class^="repliedMessage"]::before {
+    /* Makes the icon next to replies square */
     border-radius: 0px;
 }
 
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div[class^="listItem"] {
-    margin-bottom: var(--sq-distance-between-server-icons);
+svg[class^="unreadPillCap"] {
+    /* Hides the triangle next to the unread indicator */
+    display: none;
+}
+
+span[class^="unreadPill"] {
+    /* Unread indicator needs more padding to compensate */
+    padding-left: 4px;
+}
+
+div[class^="mediaBarWrapper"]::after, div[class^="mediaBarWrapper"] > div[class*="buffer"]::after {
+    /* The end of the video progress bar is hardcoded to be round */
+    display: none;
+}
+
+button[aria-label="Upload a File"] {
+    /* Looks nicer */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div[aria-labelledby="gif-picker-tab"] > div > div > div > div > div[class^="result"] {
+    /* I've always hated the blue overlay in the GIF picker doesn't cover the entire GIF */
+    height: 111px !important;
 }
