@@ -2,7 +2,7 @@
 * @name Square Theme
 * @author craftablescience#6001
 * @description Makes Discord square.
-* @version 1.0.4
+* @version 1.1.0
 * @source https://github.com/craftablescience/Discord-Square-Theme/
 * @website https://belewis.me
 * @invite ASgHFkX
@@ -13,6 +13,7 @@
 
 
 /* Settings */
+
 :root {
     --sq-mobile: green; /* change this if you want to see a difference between mobile and online */
     --sq-online: green;
@@ -20,12 +21,19 @@
     --sq-dnd: red;
     --sq-offline: grey;
     --sq-invisible: grey;
+    
+    --sq-distance-between-server-icons: 6px;
 }
 
 
 
 
+
+
+
+
 /* Profile Icons */
+
 div[data-list-id="chat-messages"] > div > div > img {
     border-radius: 0px !important;
 }
@@ -152,4 +160,73 @@ div[class^="voiceUserSummary"] > div > svg > foreignObject {
 
 div[class^="tooltip"] > div > div > svg > foreignObject {
     mask: none;
+}
+
+
+
+
+
+
+
+
+/* Server List */
+
+div[aria-label="Servers"] > div > div > div[class^="blobContainer"] > div > svg > foreignObject {
+    mask: none;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div {
+    margin-bottom: var(--sq-distance-between-server-icons);
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div > div > svg > foreignObject {
+    mask: none;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div[class^="listItemWrapper"] > div {
+    border-radius: 0px;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div {
+    border-radius: 0px !important;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div {
+    margin-bottom: 0px;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] {
+    padding-top: 0px;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItemWrapper"] {
+    margin-bottom: var(--sq-distance-between-server-icons);
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItemWrapper"] > div {
+    border-radius: 0px;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="guildSeparator"] {
+    margin-bottom: var(--sq-distance-between-server-icons);
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="listItem"] > div > div > svg > foreignObject {
+    mask: none;
+}
+
+div[aria-label="Servers"] > div > div > div > div {
+    border-radius: 0px;
+}
+
+div[aria-label="Servers"] > div {
+    margin-bottom: var(--sq-distance-between-server-icons);
+}
+
+div[aria-label="Servers"] > div > div[class*="pill"] span {
+    border-radius: 0px;
+}
+
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div[class^="listItem"] {
+    margin-bottom: var(--sq-distance-between-server-icons);
 }
