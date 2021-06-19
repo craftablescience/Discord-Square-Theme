@@ -146,3 +146,7 @@ a[class*="imageWrapper"] {
 div[class^="voiceUserSummary"] > div > svg > foreignObject {
     mask: none;
 }
+
+div[class^="tooltip"] > div > div > svg > foreignObject {
+    mask: none;
+}
