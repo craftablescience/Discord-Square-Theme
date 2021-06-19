@@ -2,8 +2,11 @@
 * @name Square Profile Icons
 * @author craftablescience#6001
 * @description Makes profile icons square.
-* @version 1.0
+* @version 1.1
 * @source https://github.com/craftablescience/Discord-Square-Profile-Icons/
+* @website https://belewis.me
+* @invite ASgHFkX
+* @updateUrl https://raw.githubusercontent.com/craftablescience/Discord-Square-Profile-Icons/main/square_profile_icons.theme.css
 */
 
 :root {
@@ -138,4 +141,8 @@ img[class*="avatar"] {
 
 a[class*="imageWrapper"] {
     border-radius: 0px !important;
+}
+
+div[class^="voiceUserSummary"] > div > svg > foreignObject {
+    mask: none;
 }
