@@ -188,10 +188,10 @@ div[class^="tooltip"] > div > div > svg > foreignObject { /* Removes bevels from
 
 /* Server List */
 
-div[aria-label="Servers"] > div > div > div[class^="blobContainer"] > div > svg > foreignObject,
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div > div > svg > foreignObject,
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="listItem"] > div > div > svg > foreignObject,
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItem"] > div > div > svg > foreignObject {
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItem"] > div > div > svg > foreignObject,
+div[aria-label="Servers"] > div foreignObject {
     mask: none;
 }
 
