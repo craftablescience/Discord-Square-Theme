@@ -279,8 +279,3 @@ button[aria-label="Upload a File"] {
     padding-left: 10px;
     padding-right: 10px;
 }
-
-div[aria-labelledby="gif-picker-tab"] > div > div > div > div > div[class^="result"] {
-    /* I've always hated the blue overlay in the GIF picker doesn't cover the entire GIF */
-    height: 111px !important;
-}
