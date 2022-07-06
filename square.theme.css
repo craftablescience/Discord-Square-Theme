@@ -2,11 +2,11 @@
 * @name Square Theme
 * @author craftablescience#6001
 * @description Makes Discord square.
-* @version 1.1.2
+* @version 1.2.0
 * @source https://github.com/craftablescience/Discord-Square-Theme/
-* @website https://belewis.me
+* @website https://craftablescience.info
 * @invite ASgHFkX
-* @updateUrl belewis.me/Discord-Square-Theme/square.theme.css
+* @updateUrl craftablescience.info/Discord-Square-Theme/square.theme.css
 */
 
 
@@ -194,20 +194,17 @@ div[aria-label="Servers"] > div foreignObject {
     mask: none;
 }
 
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div {
-    margin-bottom: 0px;
-}
-
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] {
     padding-top: 0px;
 }
 
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="guildSeparator"] {
-    margin-top: calc(var(--sq-distance-between-server-icons) - 8px);
+    height: 2px;
+    margin-top: var(--sq-distance-between-server-icons);
+    margin-bottom: calc(var(--sq-distance-between-server-icons) - 2px);
 }
 
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItemWrapper"],
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="guildSeparator"],
 div[aria-label="Servers"] > div,
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div,
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div[class^="listItem"],
