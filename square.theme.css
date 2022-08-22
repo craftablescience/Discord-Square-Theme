@@ -2,7 +2,7 @@
 * @name Square Theme
 * @author craftablescience#6001
 * @description Makes Discord square.
-* @version 1.2.0
+* @version 1.3.0
 * @source https://github.com/craftablescience/Discord-Square-Theme/
 * @website https://craftablescience.info
 * @invite ASgHFkX
@@ -39,21 +39,43 @@ svg rect {
     rx: 0;
 }
 
-div[role="button"] > div > svg > foreignObject,
-div[class*="headerIcon"] > div > svg > foreignObject,
-div[class*="guild"] foreignObject {
-    /* Affects the guild icons in the emoji picker and some other places */
-    mask: none;
-}
-
 div[class^="tooltipPointer"] {
     /* Hides the arrow next to all tooltips if present */
     display: none;
 }
 
+div[class*="controlButton"] > svg > foreignObject {
+	/* Makes control popup buttons in voice calls round */
+	mask: none;
+}
+
+
+
+
+/* Emoji / GIF / Sticker Picker Styles */
+
+div[role="button"] > div > svg > foreignObject,
+div[class*="headerIcon"] > div > svg > foreignObject,
+div[class*="guild"] foreignObject,
+div[class*="categoryItemGuildCategory"] > div > svg > foreignObject {
+    /* Affects the guild icons in the emoji picker and some other places */
+    mask: none;
+}
+
 div[class*="result"]::after {
     /* Makes the hover border in the GIF picker square */
     border-radius: 0px;
+}
+
+div[class*="inspectedIndicator"],
+div[class*="assetWrapperMasked"] {
+	/* Makes stickers in the sticker picker square on hover */
+	mask: none;
+	-webkit-mask: none;
+}
+
+div[class*="graphicSecondary"] > div > svg > foreignObject {
+	mask: none;
 }
 
 
@@ -180,6 +202,16 @@ div[role="img"] > svg > foreignObject, /* Removes rounding from icons in the Mem
 div[class^="voiceUserSummary"] > div > svg > foreignObject, /* Removes bevels from user icons under a collapsed category with an active VC */
 div[class^="tooltip"] > div > div > svg > foreignObject { /* Removes bevels from user icons when there are people in a VC in a server tooltip */
     mask: none;
+}
+
+div[class*="callContainer"] svg > foreignObject {
+	/* Makes avatars square in Discord video/voice calls */
+	mask: none;
+}
+
+div[class*="callContainer"] div[class*="wrapper"]::after {
+	/* Make the flashing video/voice call border square */
+	border-radius: 0px;
 }
 
 
