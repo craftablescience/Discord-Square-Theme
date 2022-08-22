@@ -2,7 +2,7 @@
 * @name Square Theme
 * @author craftablescience#6001
 * @description Makes Discord square.
-* @version 1.3.0
+* @version 1.3.1
 * @source https://github.com/craftablescience/Discord-Square-Theme/
 * @website https://craftablescience.info
 * @invite ASgHFkX
@@ -12,16 +12,26 @@
 
 
 
+/*
+ * TODO:
+ * - Radio buttons
+ * - Green popups when moving servers in list
+ */
+
+
+
+
 /* Settings */
 
 :root {
     --sq-mobile: green; /* change this if you want to see a difference between mobile and online */
-    --sq-online: green;
-    --sq-idle: rgb(150, 150, 0);
+    --sq-online: lime;
+    --sq-idle: yellow;
     --sq-dnd: red;
     --sq-offline: grey;
     
-    --sq-distance-between-server-icons: 6px;
+    --sq-distance-between-server-icons: 8px;
+	--sq-profile-status-size: 3px;
 }
 
 
@@ -66,6 +76,7 @@ div[class*="guild"] foreignObject,
 div[class*="categoryItemGuildCategory"] > div > svg > foreignObject {
     /* Affects the guild icons in the emoji picker and some other places */
     mask: none;
+	-webkit-mask: none;
 }
 
 div[class*="result"]::after {
@@ -95,47 +106,55 @@ img[class*="avatar"] {
     border-radius: 0px;
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="mobile"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-mobile);
+div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="mobile"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="mobile"] > svg > foreignObject {
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-mobile);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Online"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="Online"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-online);
+div[class*="avatar"][aria-label$="Online"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Online"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="Online"] > svg > foreignObject {
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-online);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Idle"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="Idle"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-idle);
+div[class*="avatar"][aria-label$="Idle"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Idle"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="Idle"] > svg > foreignObject {
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-idle);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Disturb"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="Disturb"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-dnd);
+div[class*="avatar"][aria-label$="Disturb"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Disturb"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="Disturb"] > svg > foreignObject {
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-dnd);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Offline"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="Offline"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-offline);
+div[class*="avatar"][aria-label$="Offline"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Offline"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="Offline"] > svg > foreignObject {
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-offline);
 }
 
-div[class*="header"] > div[class*="avatar"][aria-label$="Invisible"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="Invisible"] > svg > foreignObject {
-    border-bottom: 4px solid var(--sq-offline);
+div[class*="avatar"][aria-label$="Invisible"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Invisible"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="Invisible"] > svg > foreignObject {
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-offline);
 }
 
-div[class*="headerAvatar"] > svg > foreignObject {
-    border-bottom-width: 2px !important;
+div[class*="headerAvatar"] > svg > foreignObject,
+div[class*="listAvatar"] > svg > foreignObject {
+    border-bottom-width: var(--sq-profile-status-size) !important;
 }
 
 div[class*="avatar"] svg > rect,
-div[class*="headerAvatar"] > svg > rect {
+div[class*="headerAvatar"] > svg > rect,
+div[class*="listAvatar"] > svg > rect {
     display: none;
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > foreignObject {
-    border-bottom: 2px solid var(--sq-mobile);
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-mobile);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > svg[class*="dots"] {
@@ -143,7 +162,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > svg[c
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > foreignObject {
-    border-bottom: 2px solid var(--sq-online);
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-online);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > svg[class*="dots"] {
@@ -151,7 +170,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > svg[c
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > foreignObject {
-    border-bottom: 2px solid var(--sq-idle);
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-idle);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > svg[class*="dots"] {
@@ -159,7 +178,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > svg[cla
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > foreignObject {
-    border-bottom: 2px solid var(--sq-dnd);
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-dnd);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > svg[class*="dots"] {
@@ -169,7 +188,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > svg[
 div[class*="avatar"] > div[class*="wrapper"] > svg > foreignObject {
     /* Offline by default, it's not in the label */
     border: 0px solid rgba(0,0,0,0);
-    border-bottom: 2px solid var(--sq-offline);
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-offline);
 }
 
 div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] {
@@ -178,7 +197,7 @@ div[class*="avatar"] > div[class*="wrapper"] > svg > svg[class*="dots"] {
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Invisible"] > svg > foreignObject {
-    border-bottom: 2px solid var(--sq-offline);
+    border-bottom: var(--sq-profile-status-size) solid var(--sq-offline);
 }
 
 div[class*="avatar"] > div[class*="wrapper"][aria-label$="Invisible"] > svg > svg[class*="dots"] {
