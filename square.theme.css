@@ -49,6 +49,12 @@ div[class*="controlButton"] > svg > foreignObject {
 	mask: none;
 }
 
+img[class*="voiceSectionGuildImage"], /* Friends section on the right, people are in a VC, this is the server image */
+div[class*="partyMemberKnown"] { /* Friends section on the right, people are in a VC, these are their avatars */
+	mask: none;
+	-webkit-mask: none;
+}
+
 
 
 
