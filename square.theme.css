@@ -244,16 +244,16 @@ div[class*="callContainer"] div[class*="wrapper"]::after {
 
 
 
-/* Server List */
+/* Servers */
 
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="tutorialContainer"] > div > div > div > svg > foreignObject,
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div[class^="listItem"] > div > div > svg > foreignObject,
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[class^="listItem"] > div > div > svg > foreignObject,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] div[class^="tutorialContainer"] div > svg > foreignObject,
+nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] div[class^="listItem"] div > svg > foreignObject,
 div[aria-label="Servers"] > div foreignObject {
     mask: none;
 }
 
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] {
+	/* Get rid of padding above the Discord logo (not the window title logo, the homepage button) */
     padding-top: 0px;
 }
 
