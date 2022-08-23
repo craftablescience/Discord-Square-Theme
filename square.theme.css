@@ -227,13 +227,10 @@ svg[class*="avatarHint"] > foreignObject {
 
 div[role="img"] > svg > foreignObject, /* Removes rounding from icons in the Members list */
 div[class^="voiceUserSummary"] > div > svg > foreignObject, /* Removes bevels from user icons under a collapsed category with an active VC */
-div[class^="tooltip"] > div > div > svg > foreignObject { /* Removes bevels from user icons when there are people in a VC in a server tooltip */
-    mask: none;
-}
-
-div[class*="callContainer"] svg > foreignObject {
-	/* Makes avatars square in Discord video/voice calls */
+div[class^="tooltip"] > div > div > svg > foreignObject, /* Removes bevels from user icons when there are people in a VC in a server tooltip */
+div[class*="callContainer"] svg > foreignObject { /* Makes avatars square in Discord video/voice calls */
 	mask: none;
+	-webkit-mask: none;
 }
 
 div[class*="callContainer"] div[class*="wrapper"]::after {
@@ -250,6 +247,7 @@ nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] div[class^="tuto
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] div[class^="listItem"] div > svg > foreignObject,
 div[aria-label="Servers"] > div foreignObject {
     mask: none;
+	-webkit-mask: none;
 }
 
 nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] {
@@ -364,4 +362,16 @@ button[aria-label="Upload a File"] {
     /* Looks nicer */
     padding-left: 10px;
     padding-right: 10px;
+}
+
+img[class*="assetsLargeMask"] {
+	/* Removes mask over big icon in rich presence */
+	mask: none;
+	-webkit-mask: none;
+}
+
+img[class*="assetsSmallImage"] {
+	bottom: 0px;
+	right: 0px;
+	background-color: var(--background-secondary);
 }
