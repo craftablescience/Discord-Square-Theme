@@ -370,13 +370,15 @@ button[aria-label="Upload a File"] {
     padding-right: 10px;
 }
 
-img[class*="assetsLargeMask"] {
+img[class*="assetsLargeMask"],
+div[class*="activitySection"] > img[class*="largeImage"] {
 	/* Removes mask over big icon in rich presence */
 	mask: none;
 	-webkit-mask: none;
 }
 
 img[class*="assetsSmallImage"] {
+	/* Make small rich presence icon look nicer */
 	bottom: 0px;
 	right: 0px;
 	background-color: var(--background-secondary);
