@@ -55,6 +55,12 @@ svg rect {
     rx: 0;
 }
 
+svg foreignObject[mask="url(#svg-mask-avatar-default)"] {
+	/* Try to remove masks over avatars globally */
+	mask: none;
+	-webkit-mask: none;
+}
+
 div[class^="tooltipPointer"] {
     /* Hides the arrow next to all tooltips if present */
     display: none;
