@@ -271,6 +271,11 @@ nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] > div > div[clas
     margin-bottom: var(--sq-distance-between-server-icons);
 }
 
+div[class^="pageWrapper"] div[class^="searchHeader"] > img {
+	/* Use a precomputed square image for the Discover Servers header */
+	content: url("https://craftablescience.info/Discord-Square-Theme/community_server_banner_square.png");
+}
+
 
 
 
