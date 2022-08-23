@@ -28,9 +28,10 @@
     --sq-idle: yellow;
     --sq-dnd: red;
     --sq-offline: grey;
-    
-    --sq-distance-between-server-icons: 8px;
+
 	--sq-profile-status-size: 3px;
+
+	--sq-distance-between-server-icons: 8px; /* this value is semi hardcoded, modify at risk of looking bad */
 }
 
 
@@ -111,6 +112,11 @@ img[class*="avatar"] {
 a[aria-label*="group"] div > svg > foreignObject {
 	/* Group DMs will have an Offline status without this */
 	border-bottom-width: 0px !important;
+}
+
+svg > rect[mask*="svg-mask-status"] {
+	/* Hide statuses in @mention autocomplete listings, no good way to add an underline */
+	display: none;
 }
 
 div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject,
