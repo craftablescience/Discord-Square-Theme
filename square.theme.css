@@ -54,11 +54,8 @@ div[class^="tooltipPointer"] {
     display: none;
 }
 
-div[class*="controlButton"] > svg > foreignObject {
-	/* Makes control popup buttons in voice calls round */
-	mask: none;
-}
-
+div[class*="controlButton"] > svg > foreignObject, /* Makes control popup buttons in voice calls round */
+div[class*="viewer"] > svg > foreignObject, /* Voice channel, all people watching a stream */
 img[class*="voiceSectionGuildImage"], /* Friends section on the right, people are in a VC, this is the server image */
 div[class*="partyMemberKnown"] { /* Friends section on the right, people are in a VC, these are their avatars */
 	mask: none;
