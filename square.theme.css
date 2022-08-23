@@ -44,6 +44,12 @@
     border-radius: 0px !important;
 }
 
+*[class*="scroller"]::-webkit-scrollbar-track,
+*[class*="scroller"]::-webkit-scrollbar-thumb {
+	/* Scrollbars */
+	border-radius: 0px !important;
+}
+
 svg rect {
     /* Makes some round SVGs square (most notably, checkbuttons, which are called "sliders" for some stupid reason) */
     rx: 0;
