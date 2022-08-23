@@ -103,6 +103,11 @@ img[class*="avatar"] {
     border-radius: 0px;
 }
 
+a[aria-label*="group"] div > svg > foreignObject {
+	/* Group DMs will have an Offline status without this */
+	border-bottom-width: 0px !important;
+}
+
 div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject,
 div[class*="headerAvatar"][aria-label$="mobile"] > svg > foreignObject,
 div[class*="listAvatar"][aria-label$="mobile"] > svg > foreignObject {
