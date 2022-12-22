@@ -61,6 +61,13 @@ svg foreignObject[mask="url(#svg-mask-avatar-default)"] {
 	-webkit-mask: none;
 }
 
+/* hide all the masks a profile image can have and also the weird dot */
+svg[class^="bannerSVGWrapper"] mask,
+[class^="avatarHoverTarget"] circle {
+    display: none;
+}
+
+
 div[class^="tooltipPointer"] {
     /* Hides the arrow next to all tooltips if present */
     display: none;
@@ -172,7 +179,7 @@ div[class*="listAvatar"] > svg > rect {
     display: none;
 }
 
-div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > foreignObject {
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg[class^="mask"] > foreignObject {
     border-bottom: var(--sq-profile-status-size) solid var(--sq-mobile);
 }
 
@@ -180,7 +187,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > svg[c
     color: var(--sq-mobile);
 }
 
-div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > foreignObject {
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg[class^="mask"] > foreignObject {
     border-bottom: var(--sq-profile-status-size) solid var(--sq-online);
 }
 
@@ -188,7 +195,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online"] > svg > svg[c
     color: var(--sq-online);
 }
 
-div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > foreignObject {
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg[class^="mask"] > foreignObject {
     border-bottom: var(--sq-profile-status-size) solid var(--sq-idle);
 }
 
@@ -196,7 +203,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Idle"] > svg > svg[cla
     color: var(--sq-idle);
 }
 
-div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > foreignObject {
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg[class^="mask"] > foreignObject {
     border-bottom: var(--sq-profile-status-size) solid var(--sq-dnd);
 }
 
@@ -204,7 +211,7 @@ div[class*="avatar"] > div[class*="wrapper"][aria-label$="Disturb"] > svg > svg[
     color: var(--sq-dnd);
 }
 
-div[class*="avatar"] > div[class*="wrapper"] > svg > foreignObject {
+div[class*="avatar"] > div[class*="wrapper"] > svg[class^="mask"] > foreignObject {
     /* Offline by default, it's not in the label */
     border: 0px solid rgba(0,0,0,0);
     border-bottom: var(--sq-profile-status-size) solid var(--sq-offline);
