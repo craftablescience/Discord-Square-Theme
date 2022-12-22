@@ -61,10 +61,12 @@ svg foreignObject[mask="url(#svg-mask-avatar-default)"] {
 	-webkit-mask: none;
 }
 
-/* hide all the masks a profile image can have */
-svg[class^="bannerSVGWrapper"] mask {
+/* hide all the masks a profile image can have and also the weird dot */
+svg[class^="bannerSVGWrapper"] mask,
+[class^="avatarHoverTarget"] circle {
     display: none;
 }
+
 
 div[class^="tooltipPointer"] {
     /* Hides the arrow next to all tooltips if present */
