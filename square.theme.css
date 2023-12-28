@@ -132,9 +132,9 @@ svg > rect[mask*="svg-mask-status"] {
 	display: none;
 }
 
-div[class*="avatar"][aria-label$="mobile"] > svg > foreignObject,
-div[class*="headerAvatar"][aria-label$="mobile"] > svg > foreignObject,
-div[class*="listAvatar"][aria-label$="mobile"] > svg > foreignObject {
+div[class*="avatar"][aria-label$="Online via Mobile"] > svg > foreignObject,
+div[class*="headerAvatar"][aria-label$="Online via Mobile"] > svg > foreignObject,
+div[class*="listAvatar"][aria-label$="Online via Mobile"] > svg > foreignObject {
     border-bottom: var(--sq-profile-status-size) solid var(--sq-mobile);
 }
 
@@ -179,11 +179,11 @@ div[class*="listAvatar"] > svg > rect {
     display: none;
 }
 
-div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg[class^="mask"] > foreignObject {
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online via Mobile"] > svg[class^="mask"] > foreignObject {
     border-bottom: var(--sq-profile-status-size) solid var(--sq-mobile);
 }
 
-div[class*="avatar"] > div[class*="wrapper"][aria-label$="mobile"] > svg > svg[class*="dots"] {
+div[class*="avatar"] > div[class*="wrapper"][aria-label$="Online via Mobile"] > svg > svg[class*="dots"] {
     color: var(--sq-mobile);
 }
 
