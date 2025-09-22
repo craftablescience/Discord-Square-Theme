@@ -1,8 +1,8 @@
 /**
 * @name Square Theme
-* @author craftablescience#6001
+* @author craftablescience
 * @description Makes Discord square.
-* @version 2.0.2
+* @version 3.0.0
 * @source https://github.com/craftablescience/Discord-Square-Theme/
 * @website https://craftablescience.info
 * @invite ASgHFkX
@@ -249,6 +249,8 @@ svg[class*="avatarHint"] > foreignObject {
     border-bottom-width: 0px !important;
 }
 
+div[class*="profileHeader"] svg foreignObject, /* Removes rounded empty space around user profile picture in large user profile popout */
+div[class*="user-profile-popout"] svg foreignObject, /* Removes rounded empty space around user profile picture in small user profile popout */
 div[role="img"] > svg > foreignObject, /* Removes rounding from icons in the Members list */
 div[class^="voiceUserSummary"] > div > svg > foreignObject, /* Removes bevels from user icons under a collapsed category with an active VC */
 div[class^="tooltip"] > div > div > svg > foreignObject, /* Removes bevels from user icons when there are people in a VC in a server tooltip */
@@ -267,8 +269,8 @@ div[class*="callContainer"] div[class*="wrapper"]::after {
 
 /* Servers */
 
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] div[class^="tutorialContainer"] div > svg > foreignObject,
-nav[aria-label="Servers sidebar"] > ul > div[class^="scroller"] div[class^="listItem"] div > svg > foreignObject,
+nav[aria-label="Servers sidebar"] > ul div[class*="scroller"] div[class^="tutorialContainer"] div > svg > mask,
+nav[aria-label="Servers sidebar"] > ul div[class*="scroller"] div[class^="listItem"] div > svg > foreignObject,
 div[aria-label="Servers"] > div foreignObject {
     mask: none;
 	-webkit-mask: none;
@@ -409,6 +411,15 @@ img[class*="assetsSmallImage"] {
 
 
 /* Round SVGs */
+
+div[class^="gifTag"] {
+	background-image: url('data:image/svg+xml;utf8,<svg fill="none" height="22" viewBox="0 0 29 22" width="29" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h29v22h-29z"/></clipPath><g clip-path="url(%23a)"><path d="m0 0h29v22h-29vz" fill="%23202225" fill-opacity=".8"/><g fill="%23fff"><path d="m8.01725 16.2054c-.841 0-1.58534-.2175-2.233-.6525-.64767-.435-1.15034-1.044-1.508-1.827-.35767-.7926-.5365-1.7013-.5365-2.726 0-1.01497.1885-1.91397.5655-2.69697.38666-.783.9425-1.39683 1.6675-1.8415.73466-.44466 1.6095-.667 2.6245-.667.86033 0 1.62885.18367 2.30545.551.6864.36734 1.2035.8845 1.5515 1.5515l-1.6385 1.1745c-.493-.90866-1.22762-1.363-2.20395-1.363-.88934 0-1.57084.29-2.0445.87-.47367.57034-.7105 1.3775-.7105 2.42147 0 1.0537.23683 1.8657.7105 2.436.47366.5704 1.15516.8555 2.0445.8555.39633 0 .75883-.0725 1.0875-.2175.33835-.1546.59935-.3625.78295-.6235v-1.247h-2.30545v-1.885h4.36445v5.684h-1.711l-.2755-.957c-.57029.7734-1.41612 1.16-2.53745 1.16z"/><path d="m16.5444 16.0024h-2.117v-10.00497h2.117z"/><path d="m20.6933 16.0024h-2.117v-10.00497h6.6845v1.914h-4.5675v2.37797h3.712v1.914h-3.712z"/></g></g></svg>');
+}
+
+
+
+
+/* Broken Round SVGs - need to fix! */
 
 path[d="M23.0212 1.67671C21.3107 0.879656 19.5079 0.318797 17.6584 0C17.4062 0.461742 17.1749 0.934541 16.9708 1.4184C15.003 1.12145 12.9974 1.12145 11.0283 1.4184C10.819 0.934541 10.589 0.461744 10.3368 0.00546311C8.48074 0.324393 6.67795 0.885118 4.96746 1.68231C1.56727 6.77853 0.649666 11.7538 1.11108 16.652C3.10102 18.1418 5.3262 19.2743 7.69177 20C8.22338 19.2743 8.69519 18.4993 9.09812 17.691C8.32996 17.3997 7.58522 17.0424 6.87684 16.6135C7.06531 16.4762 7.24726 16.3387 7.42403 16.1847C11.5911 18.1749 16.408 18.1749 20.5763 16.1847C20.7531 16.3332 20.9351 16.4762 21.1171 16.6135C20.41 17.0369 19.6639 17.3997 18.897 17.691C19.3052 18.4993 19.7718 19.2689 20.3021 19.9945C22.6677 19.2689 24.8929 18.1364 26.8828 16.6466H26.8893C27.43 10.9731 25.9665 6.04728 23.0212 1.67671ZM9.68041 13.6383C8.39754 13.6383 7.34085 12.4453 7.34085 10.994C7.34085 9.54272 8.37155 8.34973 9.68041 8.34973C10.9893 8.34973 12.0395 9.54272 12.0187 10.994C12.0187 12.4453 10.9828 13.6383 9.68041 13.6383ZM18.3161 13.6383C17.0332 13.6383 15.9765 12.4453 15.9765 10.994C15.9765 9.54272 17.0124 8.34973 18.3161 8.34973C19.6184 8.34973 20.6751 9.54272 20.6543 10.994C20.6543 12.4453 19.6184 13.6383 18.3161 13.6383Z"] {
 	/* Discord logo */
